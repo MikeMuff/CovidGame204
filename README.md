@@ -20,7 +20,7 @@ Due Date: 11/20/2020 Planned Finish: 11/15/2020*
 - Once operable you can escape the room and enter the last puzzle
 
 #### Puzzle 4
-- This final puzzle for level one is still open for discussion
+- Those 4 syringes will be used to cure 4 zombies to become human again
 
 #### Scene Transition
 - When all of the puzzles on this floor have been finished and there is still time the portal to the next level will be open
@@ -40,21 +40,30 @@ Due Date: 11/20/2020 Planned Finish: 11/15/2020*
    - Sound Effects
    
 #### Monday
-- First Person Controller
-- Lighting
-- Operable Doors
+- First Person Controller (Done)
+- Level 1 Lighting (Done)
+- Level 1 Operable Doors (Done)
+  - If time permits open doors when a task is complete (Ongoing)
 
 #### Tuesday
 - Zombie AI
-- Pause Menu
+- Death (On Player Controller)
+  - Death from Lava (I assume a collision for death)
+  - Death from Zombie (I assume a collision for death)
+  - Death from timer running out (When timer == 0 Kill character)
+   - Option to restart the scene (Needed)
+- Pause Menu (Might push to Wednesday)
   - Will be ongoing as Saving and factory settings and audio will be here 
   - Hopefully a slider for volume for the feeble minded spooked
 - Scene Transition from scene one to two
 
 #### Wednesday
-- Time configuration
-- Level 1 Puzzle 1 
-- Level 1 Puzzle 2
+- Time configuration (In-Progress)
+  - Countdown (Done)
+  - Add Time (Done)
+  - Timer Hitting Zero and death (In-Progress)
+- Level 1 Puzzle 1 (Done)
+- Level 1 Puzzle 2 (Done)
 
 #### Thursday
 - Level 1 Puzzle 3
@@ -63,12 +72,12 @@ Due Date: 11/20/2020 Planned Finish: 11/15/2020*
 #### Friday
 - Saving changes
   - Saving Checkpoints
-- Particle config
-  - Lava Particles
-  - Portal Particles
+- Particle config (Done)
+  - Lava Particles (Done)
+  - Portal Particles (Done)
 
 #### Saturday
-- Sound effects for Level 1
+- Sound effects for Level 1 (Done)
 - Zoom abilites for a "Computer Screen" that explains the puzzle in a riddle format
 
 #### Sunday
