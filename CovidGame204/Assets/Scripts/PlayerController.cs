@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
+using System.Text.RegularExpressions;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,9 +12,10 @@ public class PlayerController : MonoBehaviour
     public Text syringeText;
     public Text lavaJump;
     public Text timerText;
-
+    public Text leverText;
     public float timeRemaining = 60;
     private float syringeCounter = 0f;
+    private float totalLevers = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +53,16 @@ public class PlayerController : MonoBehaviour
             lavaJump.text = "Lava Crossed: Yes";
             lavaJump.color = new Color(0,255,0,255);
             other.gameObject.SetActive (false);
+        }
+        if (other.gameObject.CompareTag ("Lever")){
+            string lever = leverText.text;
+            string resultString = Regex.Match(lever, @"\d+").Value;
+            Debug.Log("We in levers");
+            totalLevers = float.Parse(resultString);
+            Debug.Log(totalLevers);
+            if(totalLevers >= 2){
+                timeRemaining += 15f;
+            }
         }
     }
 }

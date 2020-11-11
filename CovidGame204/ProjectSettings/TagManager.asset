@@ -8,6 +8,8 @@ TagManager:
   - Lava
   - Zombie
   - LavaFloor
+  - GeneratorLights
+  - Lever
   layers:
   - Default
   - TransparentFX
