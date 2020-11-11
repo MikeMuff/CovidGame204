@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class PlayerController : MonoBehaviour
     {
         timeRemaining -= Time.deltaTime;
         timerText.text = "Time Left: " + timeRemaining.ToString("0");
+        if(timeRemaining <= 0){
+            SceneManager.LoadScene(2);
+        }
     }
 
     void OnTriggerEnter(Collider other) 
@@ -47,10 +51,5 @@ public class PlayerController : MonoBehaviour
             lavaJump.color = new Color(0,255,0,255);
             other.gameObject.SetActive (false);
         }
-
-
-        if (other.gameObject.CompareTag ("Zombie") || other.gameObject.CompareTag ("LavaFloor")){
-            
-	   }
     }
 }
