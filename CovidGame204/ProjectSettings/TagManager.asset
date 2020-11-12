@@ -10,6 +10,7 @@ TagManager:
   - LavaFloor
   - GeneratorLights
   - Lever
+  - Cure
   layers:
   - Default
   - TransparentFX

@@ -49,7 +49,7 @@ public class LeverScript : MonoBehaviour
     	}
     }
   	void changeLeverState(){
-  		Debug.Log("We got in Here");
+  		//Debug.Log("We got in Here");
     	if(leverIsOff){
     		Debug.Log("Lever turnedOn");
     		theLever.GetComponent<Animation>().Play("LeverOn");
@@ -71,7 +71,7 @@ public class LeverScript : MonoBehaviour
 	}
 
     IEnumerator test(float numSeconds){
-    	Debug.Log("We are yielding!");
+    	//Debug.Log("We are yielding!");
     	yield return new WaitForSeconds(numSeconds);
     	if(leverIsOff){
     		lt.color = Color.green;

@@ -13,18 +13,31 @@ public class PlayerController : MonoBehaviour
     public Text lavaJump;
     public Text timerText;
     public Text leverText;
+    public Text curedText;
+    public Text finalTimeText;
+    //Winning parameters if all are true then you win
+    private bool winSyringe = false;
+    private bool winLavaJump = false;
+    private bool winLever = false;
+    private bool winCure = false;
+
+    public GameObject winTextObject;
+
     public float timeRemaining = 60;
     private float syringeCounter = 0f;
     private float totalLevers = 0f;
+    private float totalCures = 0f;
+    private float time;
     // Start is called before the first frame update
     void Start()
     {
-        
+        time = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        time += Time.deltaTime;
         timeRemaining -= Time.deltaTime;
         timerText.text = "Time Left: " + timeRemaining.ToString("0");
         if(timeRemaining <= 0){
@@ -45,6 +58,7 @@ public class PlayerController : MonoBehaviour
                 if(syringeCounter == 4){
                     timeRemaining += 15f;
                     syringeText.color = new Color(0,255,0,255);
+                    winSyringe = true;
 
                 }
 			}
@@ -53,16 +67,41 @@ public class PlayerController : MonoBehaviour
             lavaJump.text = "Lava Crossed: Yes";
             lavaJump.color = new Color(0,255,0,255);
             other.gameObject.SetActive (false);
+            winLavaJump = true;
         }
         if (other.gameObject.CompareTag ("Lever")){
             string lever = leverText.text;
             string resultString = Regex.Match(lever, @"\d+").Value;
-            Debug.Log("We in levers");
             totalLevers = float.Parse(resultString);
-            Debug.Log(totalLevers);
             if(totalLevers >= 2){
                 timeRemaining += 15f;
+                winLever = true;
             }
         }
+        if (other.gameObject.CompareTag ("Cure")){
+            string cure = curedText.text;
+            string resultString = Regex.Match(cure, @"\d+").Value;
+            totalCures = float.Parse(resultString);
+            if(totalCures >= 2){
+                timeRemaining += 15f;
+                winCure = true;
+            }
+        }
+        if (other.gameObject.CompareTag ("Portal")){
+            checkWin();
+        }
     }
+
+    void checkWin(){
+        if(winSyringe && winCure && winLever && winLavaJump){
+                winTextObject.SetActive(true);
+                finalTimeText.text = "Total Time: " + time.ToString("0");
+                finalTimeText.enabled = true;
+                Time.timeScale = 0f;
+            }
+    }
+
+
+
+
 }
