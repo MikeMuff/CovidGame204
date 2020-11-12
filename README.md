@@ -5,7 +5,22 @@ Due Date: 11/20/2020 Planned Finish: 11/15/2020*
 - You are lost in space with a serious disease onboard also known as COVID-19 where many of the passengers have turned into zombies. The ship has damages hat need to be fixed for you to get back to earth.
 - You must find the other passengers by traversing through the ship and avoid infected passengers and failure to do so will end up with everyone onboard being infeced and the ultimate demise of the entire spaceship 
 
+
 ### Level 1 Specs
+
+#### Puzzle 1
+- Have to walk through a selection of squares that are color coordinated. If you walk on the wrong tiles you will fall through and die.
+
+#### Puzzle 2
+-
+
+#### Puzzle 3
+-
+
+#### Puzzle 4
+- 
+
+### Level 2 Specs
 
 #### Puzzle 1
 - Collect all of the syringes in the room before the time is up and not get "infected" by the zombies
@@ -20,25 +35,11 @@ Due Date: 11/20/2020 Planned Finish: 11/15/2020*
 - Once operable you can escape the room and enter the last puzzle
 
 #### Puzzle 4
-- Those 4 syringes will be used to cure 4 zombies to become human again
+- Those 4 syringes will be used to cure 3 zombies to become human again as the last one you will save for yourself once you have made it out of level 2 and to safety
 
 #### Scene Transition
 - When all of the puzzles on this floor have been finished and there is still time the portal to the next level will be open
 - If the portal will not be accessible if all puzzles have not been successfully completed
-
-### Level 2 Specs
-
-#### Puzzle 1
-- Have to walk through a selection of squares that are color coordinated. If you walk on the wrong tiles you will fall through and die.
-
-#### Puzzle 2
--
-
-#### Puzzle 3
--
-
-#### Puzzle 4
-- 
 
 ## Scheduled Plan
 - Note:
@@ -57,39 +58,51 @@ Due Date: 11/20/2020 Planned Finish: 11/15/2020*
   - If time permits open doors when a task is complete (Ongoing)
 
 #### Tuesday
-- Zombie AI
-- Death (On Player Controller)
-  - Death from Lava (I assume a collision for death)
-  - Death from Zombie (I assume a collision for death)
-  - Death from timer running out (When timer == 0 Kill character)
-   - Option to restart the scene (Needed)
-- Pause Menu (Might push to Wednesday)
+- Zombie AI (Done)
+- Death (On Player Controller) (Done)
+  - Death from Lava (I assume a collision for death) (Done)
+  - Death from Zombie (I assume a collision for death) (Done)
+  - Death from timer running out (When timer == 0 Kill character) (Done)
+- Pause Menu (Might push to Wednesday) (Done)
   - Will be ongoing as Saving and factory settings and audio will be here 
-  - Hopefully a slider for volume for the feeble minded spooked
-- Scene Transition from scene one to two
+
 
 #### Wednesday
-- Time configuration (In-Progress)
+- Time configuration (Done)
   - Countdown (Done)
   - Add Time (Done)
-  - Timer Hitting Zero and death (In-Progress)
+  - Timer Hitting Zero and death (Done)
 - Level 1 Puzzle 1 (Done)
 - Level 1 Puzzle 2 (Done)
 
 #### Thursday
-- Level 1 Puzzle 3
-- Level 1 Puzzle 4
+- Level 1 Puzzle 3 (Done)
+- Level 1 Puzzle 4 (Done)
+- Pause Menu
+  - Restart option
+  (Reload Current Scene)
+- Scene Transition from scene one to two
+- Save option in Pause Menu
+- Restore Factory Settings
+- Winning option
+  - Says you survived
+  - Totaltime it took for each level
+  - Button to goto menu
+- When dead
+  - Pause game and ask if you would like to respawn from last checkpoint
+  - Or quit game
+- Add portal area-sound
+  - When you get close the portal gets louder
+- Somehow get the music to transfer from scene to scene
 
 #### Friday
-- Saving changes
-  - Saving Checkpoints
 - Particle config (Done)
   - Lava Particles (Done)
   - Portal Particles (Done)
+- Comment/clean code
 
 #### Saturday
-- Sound effects for Level 1 (Done)
-- Zoom abilites for a "Computer Screen" that explains the puzzle in a riddle format
+- Testing
 
 #### Sunday
 - Final Touches 
