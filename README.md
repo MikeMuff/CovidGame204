@@ -27,7 +27,18 @@ Due Date: 11/20/2020 Planned Finish: 11/15/2020*
 - If the portal will not be accessible if all puzzles have not been successfully completed
 
 ### Level 2 Specs
-- TBD
+
+#### Puzzle 1
+- Have to walk through a selection of squares that are color coordinated. If you walk on the wrong tiles you will fall through and die.
+
+#### Puzzle 2
+-
+
+#### Puzzle 3
+-
+
+#### Puzzle 4
+- 
 
 ## Scheduled Plan
 - Note:
