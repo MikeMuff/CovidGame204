@@ -11,6 +11,7 @@ TagManager:
   - GeneratorLights
   - Lever
   - Cure
+  - ColorChange
   layers:
   - Default
   - TransparentFX
