@@ -94,10 +94,14 @@ public class PlayerController : MonoBehaviour
 
     void checkWin(){
         if(winSyringe && winCure && winLever && winLavaJump){
+                Time.timeScale = 0f;
                 winTextObject.SetActive(true);
                 finalTimeText.text = "Total Time: " + time.ToString("0");
                 finalTimeText.enabled = true;
                 Time.timeScale = 0f;
+                if(Input.GetKeyDown(KeyCode.M)){
+                    SceneManager.LoadScene(1);
+                }
             }
     }
 

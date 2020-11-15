@@ -12,6 +12,7 @@ TagManager:
   - Lever
   - Cure
   - ColorChange
+  - Portal
   layers:
   - Default
   - TransparentFX
