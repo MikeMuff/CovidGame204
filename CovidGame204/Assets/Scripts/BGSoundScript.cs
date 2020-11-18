@@ -15,13 +15,24 @@ public class BGSoundScript : MonoBehaviour
     public static BGSoundScript Instance{
     	get { return instance; }
     }
-    void Awake()
+
+    //A simple way for the music to play globally across all scenes
+    void Awake() 
     {
-        if(instance != null && instance != this){
-        	Destroy(this.gameObject);
-        }
-        else{
-        	DontDestroyOnLoad(this.gameObject);
-        }
+        if (instance != null && instance != this) 
+        {
+            if(instance.GetComponent<AudioSource>().clip != GetComponent<AudioSource>().clip)
+            {
+                instance.GetComponent<AudioSource>().clip = GetComponent<AudioSource>().clip;
+                instance.GetComponent<AudioSource>().volume = GetComponent<AudioSource>().volume;
+                instance.GetComponent<AudioSource>().Play();
+            }
+
+            Destroy(this.gameObject);
+            return;
+        } 
+        instance = this;
+        GetComponent<AudioSource>().Play ();
+        DontDestroyOnLoad(this.gameObject);
     }
 }

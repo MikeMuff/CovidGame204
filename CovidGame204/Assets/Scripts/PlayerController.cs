@@ -6,45 +6,90 @@ using UnityEngine.SceneManagement;
 using System;
 using System.Text.RegularExpressions;
 
+//The main script for the UI canvas and the playercontroller so everythhing is centered
+//Around the player such as tasks, winning, and syringe sound
 public class PlayerController : MonoBehaviour
 {
+    //Syringe Sound
     public AudioClip coinSound;
+
+    //UI Canvas objects
     public Text syringeText;
     public Text lavaJump;
     public Text timerText;
     public Text leverText;
     public Text curedText;
     public Text finalTimeText;
+
     //Winning parameters if all are true then you win
     private bool winSyringe = false;
     private bool winLavaJump = false;
     private bool winLever = false;
     private bool winCure = false;
 
+    //Display only if the player has succeeded in winning the level
     public GameObject winTextObject;
 
+    //Time counter and numerical objects needed for winning parameters
     public float timeRemaining = 60;
     private float syringeCounter = 0f;
     private float totalLevers = 0f;
     private float totalCures = 0f;
-    private float time;
-    // Start is called before the first frame update
+    public float time1 = 0;
+    public float time2;
+    //public string currentScene;
+
+    //start time that we will capture at the end 
     void Start()
     {
-        time = 0;
+        //if (SceneManager.GetActiveScene().name == "level_two"){
+            time2 = 0;
+        //}
+        //else{
+           //currentScene = SceneManager.GetActiveScene().name;
+       //     Debug.Log(currentScene);
+        //}
     }
 
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
+        //We have our countdown time and timer counting up for totaltime
+        //if (SceneManager.GetActiveScene().name == "level_two"){
+        time2 += Time.deltaTime;
         timeRemaining -= Time.deltaTime;
         timerText.text = "Time Left: " + timeRemaining.ToString("0");
+        
+        //reload the scene if the player dies
         if(timeRemaining <= 0){
             SceneManager.LoadScene(2);
-        }
+            }
+        //}
     }
 
+    /*public void SavePlayer(){
+        Debug.Log("We have pressed Save!");
+        //currentScene = SceneManager.GetActiveScene().name;
+        SaveSystem.SavePlayer(this);
+    }
+
+    public void LoadPlayer(){
+        Debug.Log("Attempting to load");
+
+        PlayerData data = SaveSystem.LoadPlayer();
+        //SceneManager.LoadScene(data.currentScene);
+        time1 = data.time1;
+        time2 = data.time2;
+        //currentScene = data.currentScene;
+        Vector3 position;
+        position.x = data.position[0];
+        position.y = data.position[1];
+        position.z = data.position[2];
+
+        transform.position = position;
+
+    }*/
+    //All of the colliders that give you extra time and update the UI Canvas
     void OnTriggerEnter(Collider other) 
 	{
 		// ..and if the GameObject you intersect has the tag 'Pick Up' assigned to it..
@@ -87,16 +132,19 @@ public class PlayerController : MonoBehaviour
                 winCure = true;
             }
         }
+
+        //When you get to the end we want to check if all tasks have been completed
         if (other.gameObject.CompareTag ("Portal")){
             checkWin();
         }
     }
 
+    //If all parameters have been met then you win and can go back to the menu
     void checkWin(){
         if(winSyringe && winCure && winLever && winLavaJump){
                 Time.timeScale = 0f;
                 winTextObject.SetActive(true);
-                finalTimeText.text = "Total Time: " + time.ToString("0");
+                finalTimeText.text = "Total Time: " + time2.ToString("0");
                 finalTimeText.enabled = true;
                 Time.timeScale = 0f;
                 if(Input.GetKeyDown(KeyCode.M)){

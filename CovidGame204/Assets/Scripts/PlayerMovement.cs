@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    //Parameters to make our playerController move
 	public CharacterController controller;
 	public float speed = 12f;
 	public float gravity = -5.81f;
 	public float jumpHeight = 3f;
 
-
+    //Make sure we can only jump on the layer ground
 	public Transform groundCheck;
 	public float groundDistance = 0.4f;
 	public LayerMask groundMask;
@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Adding physics to the playerController to ensure they move right
     	isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
     	if(isGrounded && velocity.y < 0){

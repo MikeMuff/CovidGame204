@@ -13,6 +13,8 @@ TagManager:
   - Cure
   - ColorChange
   - Portal
+  - DontDestroy
+  - Audio
   layers:
   - Default
   - TransparentFX

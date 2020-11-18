@@ -12,7 +12,7 @@ public class DoorLogic : MonoBehaviour
 
 	public Transform theDoor;
 
-    // Update is called once per frame
+    // Update is called once per frame checking for the collision and the key E
     void Update()
     {
 
@@ -23,12 +23,13 @@ public class DoorLogic : MonoBehaviour
 
     void OnTriggerEnter(Collider other) 
     {
-        //A way of going through the "tape"
+        //Displays if player is in collision
         if (other.gameObject.CompareTag ("Player")){
         	drawGUI = true;
         }
     }
 
+    //Make sure we do not show the GUI after the player leaves the box collider area
     void OnTriggerExit(Collider other) {
     	if (other.gameObject.CompareTag ("Player")){
         	drawGUI = false;
@@ -42,23 +43,24 @@ public class DoorLogic : MonoBehaviour
     	}
     }
 
+    //State for the door and animation
   	void changeDoorState(){
   		Debug.Log("We got in Here");
     	if(doorIsClosed){
     		theDoor.GetComponent<Animation>().CrossFade("Open");
     		theDoor.GetComponent<AudioSource>().Play();
     		doorIsClosed = false;
-    		//yield return new WaitForSeconds(3f);
     		coroutine = test(3.0f);
+
+            //Coroutine to make the door automatically close behind them
     		StartCoroutine(coroutine);
-    		//test();
     		doorIsClosed = true;
 
     	}
     }
 
+    //Closing the door after 3 seconds
     IEnumerator test(float numSeconds){
-    	Debug.Log("We are yielding!");
     	yield return new WaitForSeconds(numSeconds);
     	theDoor.GetComponent<Animation>().CrossFade("Close");
     	theDoor.GetComponent<AudioSource>().Play();
