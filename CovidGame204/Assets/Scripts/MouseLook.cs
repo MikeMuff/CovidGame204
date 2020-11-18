@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//This scripit is not used currently but might be helpful to implement in the future 
+//Ideally helps the player have real limited look movement but there are some errors
 public class MouseLook : MonoBehaviour
 {
 	public float mouseSensitivity = 100f;

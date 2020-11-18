@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
 
+    //We want to make the zombies simple and only be in two states
 	public enum AIState { idle, chasing};
 	public float distanceThreshold = 7f;
 	public float setSpeed = 3f;
@@ -14,6 +15,7 @@ public class EnemyAI : MonoBehaviour
     UnityEngine.AI.NavMeshAgent nm;
     public Transform target;
 
+    //Init the zombie and start the ccoroutine
     void Start()
     {
         nm = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -26,6 +28,7 @@ public class EnemyAI : MonoBehaviour
     {
     }
 
+    //Coroutine for the zombie to update based on the players coordinates
     IEnumerator Think(){
     	while(true)
     	{

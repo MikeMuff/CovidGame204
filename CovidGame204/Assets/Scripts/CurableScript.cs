@@ -27,12 +27,12 @@ public class CurableScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other) 
         {
-    //A way of going through the "tape"
+    //A way that the GUI displays if the player is nearby
         if (other.gameObject.CompareTag ("Player")){
         	drawGUI = true;
         }
     }
-
+    //disable the GUI is player leaves the collision area
     void OnTriggerExit(Collider other) {
     	if (other.gameObject.CompareTag ("Player")){
         	drawGUI = false;
@@ -45,6 +45,7 @@ public class CurableScript : MonoBehaviour
     	}
     }
 
+    //Changing the color of the zombie from orange to blue with regex to properly update the UI canvas
     void changeZombieState(){
     	if(notCured){
     		zombieMaterial.material = new_material;

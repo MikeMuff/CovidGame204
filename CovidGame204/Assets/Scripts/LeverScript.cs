@@ -9,18 +9,28 @@ public class LeverScript : MonoBehaviour
     // Start is called before the first frame update
    	private IEnumerator coroutine;
 
+    //GUI showing the player to interact
 	private bool drawGUI = false;
 
 	//Door is closed
 	private bool leverIsOff = true;
 	public Transform theLever;
+
+    //Light that will be changed
 	public Light lt;
+
+    //updating text on the UI Canvas
 	public Text timerText;
 	public Text leverText;
-	private float leverCounter = 0f;
-	public AudioSource generatorSound;
-	private float totalLevers = 0f;
 
+
+	private float leverCounter = 0f;
+    private float totalLevers = 0f;
+
+    //Sound for the generator
+	public AudioSource generatorSound;
+
+    //Frame by frame checking if the key R is pressed
     void Update()
     {
 
@@ -29,14 +39,15 @@ public class LeverScript : MonoBehaviour
     	}
     }
 
+    //If player is close enough the invisble box collider
     void OnTriggerEnter(Collider other) 
         {
-    //A way of going through the "tape"
         if (other.gameObject.CompareTag ("Player")){
         	drawGUI = true;
         }
     }
 
+    //Hide the GUI if they leave the area
     void OnTriggerExit(Collider other) {
     	if (other.gameObject.CompareTag ("Player")){
         	drawGUI = false;
@@ -48,6 +59,8 @@ public class LeverScript : MonoBehaviour
     		GUI.Box(new Rect(Screen.width*0.5f-51,10, 200, 22), "Press R for Lever");
     	}
     }
+
+    //Changing the lever state and all of the functionality that comes with it
   	void changeLeverState(){
   		//Debug.Log("We got in Here");
     	if(leverIsOff){
@@ -70,6 +83,7 @@ public class LeverScript : MonoBehaviour
     	}
 	}
 
+    //Our Coroutine for changing the lights
     IEnumerator test(float numSeconds){
     	//Debug.Log("We are yielding!");
     	yield return new WaitForSeconds(numSeconds);
