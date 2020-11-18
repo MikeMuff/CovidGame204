@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     private float totalCures = 0f;
     public float time1 = 0;
     public float time2;
+    private bool timestop = false;
     //public string currentScene;
 
     //start time that we will capture at the end 
@@ -61,9 +62,15 @@ public class PlayerController : MonoBehaviour
         timerText.text = "Time Left: " + timeRemaining.ToString("0");
         
         //reload the scene if the player dies
-        if(timeRemaining <= 0){
+        if(timeRemaining <= 0 && timestop == false){
             SceneManager.LoadScene(2);
             }
+        if(timestop == true){
+            if(Input.GetKeyDown(KeyCode.M)){
+                    //Time.timeScale = 0f;
+                    SceneManager.LoadScene(2);
+            }
+        }
         //}
     }
 
@@ -142,14 +149,11 @@ public class PlayerController : MonoBehaviour
     //If all parameters have been met then you win and can go back to the menu
     void checkWin(){
         if(winSyringe && winCure && winLever && winLavaJump){
-                Time.timeScale = 0f;
+                timestop = true;
                 winTextObject.SetActive(true);
                 finalTimeText.text = "Total Time: " + time2.ToString("0");
                 finalTimeText.enabled = true;
-                Time.timeScale = 0f;
-                if(Input.GetKeyDown(KeyCode.M)){
-                    SceneManager.LoadScene(1);
-                }
+                Cursor.lockState = CursorLockMode.None;
             }
     }
 

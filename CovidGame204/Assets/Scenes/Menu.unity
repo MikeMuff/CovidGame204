@@ -723,13 +723,13 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1167157660}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: set_mute
-        m_Mode: 0
+      - m_Target: {fileID: 1167157659}
+        m_TargetAssemblyTypeName: BGSoundScript, Assembly-CSharp
+        m_MethodName: muteMusic
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: 99ce105a58cd544ab9435cdf1453272d, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1824,6 +1824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ceec7c620a146c9ba499879972ff21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicSource: {fileID: 1167157660}
 --- !u!82 &1167157660
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1836,7 +1837,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 99ce105a58cd544ab9435cdf1453272d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.068
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1927,8 +1928,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1167157658}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 832.33374, y: -27.173971, z: -24.94597}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 832.33374, y: -27.173965, z: -24.945972}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3515,7 +3516,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The Scabies
+  m_text: The void
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a1f3cd23ce7824728ba77ace9f2e6d2a, type: 2}
   m_sharedMaterial: {fileID: 172008072280928914, guid: a1f3cd23ce7824728ba77ace9f2e6d2a, type: 2}

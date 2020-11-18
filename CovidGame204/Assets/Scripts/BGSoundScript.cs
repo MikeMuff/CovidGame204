@@ -11,6 +11,7 @@ public class BGSoundScript : MonoBehaviour
     }
 
     //Play Globally
+    public AudioSource musicSource;
     private static BGSoundScript instance = null;
     public static BGSoundScript Instance{
     	get { return instance; }
@@ -34,5 +35,10 @@ public class BGSoundScript : MonoBehaviour
         instance = this;
         GetComponent<AudioSource>().Play ();
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    public void muteMusic(AudioClip clip){
+        musicSource.clip = clip;
+        musicSource.mute = !musicSource.mute;
     }
 }
