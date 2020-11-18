@@ -13,6 +13,7 @@ TagManager:
   - Cure
   - ColorChange
   - Portal
+  - Goal
   layers:
   - Default
   - TransparentFX
