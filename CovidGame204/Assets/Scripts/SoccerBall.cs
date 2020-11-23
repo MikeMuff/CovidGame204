@@ -9,8 +9,9 @@ public class SoccerBall : MonoBehaviour
     public AudioClip triggerSound;
     AudioSource audioSource;
 
-    void Start()
-    {
+
+    // Start is called before the first frame update
+    void Start() {
         door.SetActive(false);
         audioSource = GetComponent<AudioSource>();
     }
