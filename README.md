@@ -1,5 +1,5 @@
 # CovidGame204
-This is for a multiMedia Dev. class where we are creating a game in unity
+This is for a multiMedia Dev. class where Michael Muffoletto and Christian Marquardt are creating a game in unity
 Due Date: 11/20/2020 Planned Finish: 11/15/2020*
 ## About
 - You are lost in space with a serious disease onboard also known as COVID-19 where many of the passengers have turned into zombies. The ship has damages hat need to be fixed for you to get back to earth.
